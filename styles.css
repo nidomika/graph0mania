@@ -1,0 +1,64 @@
+ /* http: //www.html-color-names.com/darkslateblue.php */
+
+ body {
+     background-color: #483d8b;
+     font-family: 'Helvetica Neue', sans-serif;
+     color: #cdcadf;
+ }
+
+ h1 {
+     color: #eeedf4;
+     margin-bottom: 0;
+ }
+
+ #smol {
+     font-size: 0.3em;
+     color: #7971aa;
+ }
+
+ #hello {
+     margin: auto;
+     text-align: center;
+     width: 75%;
+     font-size: 2em;
+     padding: 3vw 0;
+ }
+
+ button {
+     margin: 0 auto;
+     display: block;
+     padding: 2vw 5vw;
+     font-size: 0.7em;
+     background-color: #2d2658;
+     color: #cdcadf;
+     border: none;
+     border-radius: 10vw;
+     position: relative;
+     -webkit-transition-duration: 0.4s;
+     transition-duration: 0.4s;
+ }
+
+ button:hover {
+     cursor: pointer;
+     background-color: #9b95bf;
+     color: #27214b;
+ }
+
+ button:disabled {
+     background-color: grey;
+     color: darkgray;
+ }
+
+ footer {
+     position: fixed;
+     text-align: center;
+     left: 0;
+     bottom: 5px;
+     width: 100%;
+     color: #7971aa;
+ }
+
+ :any-link {
+     text-decoration: none;
+     color: inherit;
+ }
