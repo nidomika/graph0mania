@@ -1,5 +1,9 @@
  /* http: //www.html-color-names.com/darkslateblue.php */
 
+ html {
+     scroll-behavior: smooth;
+ }
+
  body {
      background-color: #483d8b;
      font-family: 'Helvetica Neue', sans-serif;
@@ -11,20 +15,22 @@
      margin-bottom: 0;
  }
 
- #smol {
-     font-size: 0.3em;
+ .smol {
+     font-size: 0.4em;
      color: #7971aa;
  }
 
- #hello {
+ .hello {
      margin: auto;
      text-align: center;
      width: 75%;
+     height: 100%;
      font-size: 2em;
-     padding: 3vw 0;
+     padding: 3vw;
  }
 
- button {
+ button,
+ input {
      margin: 0 auto;
      display: block;
      padding: 2vw 5vw;
@@ -50,7 +56,7 @@
  }
 
  footer {
-     position: fixed;
+     /* position: fixed; */
      text-align: center;
      left: 0;
      bottom: 5px;
