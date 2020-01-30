@@ -7,7 +7,6 @@
     <link href="images\favidiamond.ico" rel="icon" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>graph0mania</title>
-    <script src="main.js"></script>
 
 </head>
 
@@ -27,9 +26,9 @@
             your graph</p>
         <p class="smol">don't worry. i don't know how to intercept data. that said, yours is safe. no worries.</p>
         <p class="smol">to niżej się zjebało sory</p>
-        <input type="file" accept=".json" onclick="handleChange(this);">
+        <input id="giveData" type="file" accept=".json" onclick="handleChange(this)">
         <p>finished?</p>
-        <button id="continue" onclick="isUploaded();">let's plot</button>
+        <button id="continue" onclick="isUploaded()">let's plot</button>
     </div>
     <p>tu będzie rysowanko</p>
     <canvas id="myChart" width="width" height="400"></canvas>
@@ -37,7 +36,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="plot.js"></script>
-
+    <script src="main.js"></script>
 </body>
 
 </html>
