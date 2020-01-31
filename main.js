@@ -1,12 +1,3 @@
-function isUploaded() {
-    if (document.getElementById('giveData').value !== "") {
-        console.log("xddddd");
-        location.href = 'plotting.html';
-    } else {
-        window.alert("you didn't actually upload any file, did you?");
-        console.log("dx");
-    }
-}
 // const imput = document.querySelector('input[type="file"]')
 // imput.addEventListener('change', function read(event) {
 //     // console.log(imput.files);
