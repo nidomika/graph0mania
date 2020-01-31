@@ -1,4 +1,8 @@
  /* http: //www.html-color-names.com/darkslateblue.php */
+ /* debuggo */
+ /* * {
+     border: solid 1px red;
+ } */
 
  html {
      scroll-behavior: smooth;
@@ -15,13 +19,19 @@
      margin-bottom: 0;
  }
 
+ p {
+     font-size: 1em;
+     margin: 0.5em 0;
+     text-align: center;
+ }
+
  .smol {
      font-size: 0.4em;
      color: #7971aa;
  }
 
  .hello {
-     margin: auto;
+     margin: 1em auto;
      text-align: center;
      width: 75%;
      height: 100%;
@@ -53,6 +63,12 @@
  button:disabled {
      background-color: grey;
      color: darkgray;
+ }
+
+ #graphMe {
+     padding: 3em 0;
+     width: 100%;
+     height: height;
  }
 
  footer {
