@@ -7,7 +7,6 @@
     <link href="images\favidiamond.ico" rel="icon" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>graph0mania</title>
-
 </head>
 
 <body>
@@ -16,22 +15,35 @@
         <p>let's create a graph out of your facebook messaging history.</p>
         <p>all you need is your facebook messaging data in json. <span class="smol">(it does take some time)</span></p>
         <p>shall we proceed?</p>
-        <button id="yes" onclick="location.href='#feed_me'" type="button">why
+        <button id="yes" onclick="location.href='#feedMe'" type="button">why
             not</button>
     </div>
-    <div class="hello" id="feed_me">
+    <div class="hello" id="feedMe">
         <h1>select json files.</h1>
         <p>add <span style="text-decoration: line-through">each persons'</span> one <span
                 style="color: #9b95bf">message_1.json</span> to plot
             your graph</p>
         <p class="smol">don't worry. i don't know how to intercept data. that said, yours is safe. no worries.</p>
-        <p class="smol">to niżej się zjebało sory</p>
+        <p class="smol">v to niżej się zjebało v</p>
         <input id="giveData" type="file" accept=".json" onclick="handleChange(this)">
         <p>finished?</p>
-        <button id="continue" onclick="isUploaded()">let's plot</button>
+        <button id="continue" onclick="isUploaded();">let's plot</button>
+        <script>
+            function isUploaded() {
+                if (document.getElementById('giveData').value !== "") {
+                    console.log("xddddd");
+                    location.href = '#graphMe';
+                } else {
+                    window.alert("you didn't actually upload any file, did you?");
+                    console.log("dx");
+                }
+            }
+        </script>
     </div>
-    <p>tu będzie rysowanko</p>
-    <canvas id="myChart" width="width" height="400"></canvas>
+    <div id="graphMe">
+        <p>tu będzie rysowanko, na razie też zjebane, bo za duże pzdr</p>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
     <footer>made with effort by <a href="http://github.com/nidomika">dominika szymanska</a></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
