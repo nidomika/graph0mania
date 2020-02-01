@@ -24,10 +24,10 @@
                 style="color: #9b95bf">message_1.json</span> to plot
             your graph</p>
         <p class="smol">don't worry. i don't know how to intercept data. that said, yours is safe. no worries.</p>
-        <p class="smol">v to niżej się zjebało v</p>
-        <input id="giveData" type="file" accept=".json" onclick="handleChange(this)">
+        <p class="smol">v to niżej się zjebało trochę v</p>
+        <input id="giveData" type="file" accept=".json" onchange="handleChange(this)">
         <p>finished?</p>
-        <button id="continue" onclick="isUploaded();">let's plot</button>
+        <button id="continue" onclick="isUploaded()">let's plot</button>
         <script>
             function isUploaded() {
                 if (document.getElementById('giveData').value !== "") {
@@ -41,7 +41,7 @@
         </script>
     </div>
     <div id="graphMe">
-        <p>tu będzie rysowanko, na razie też zjebane, bo za duże pzdr</p>
+        <p>tu będzie rysowanko, na razie też zjebane, bo za duże i nie działa Xd</p>
         <canvas id="myChart" width="400" height="400"></canvas>
     </div>
     <footer>made with effort by <a href="http://github.com/nidomika">dominika szymanska</a></footer>
