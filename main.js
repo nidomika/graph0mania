@@ -1,51 +1,54 @@
 let yourPartner = '';
 const messagingData = {
-    // x,
-    // y
+    x: [],
+    y: []
 };
-
-// jak jest data do wykresu to potrzebuje punktow xy gdzie x bedzie data zapisana normalnie
-// a y licznikiem wiadomosci 
-// ale x w obliczeniach nie moze byc normalna data
-// super robota dominika ogarnelas to po godzinie
-
 
 function handleChange(target) {
     const reader = new FileReader();
     reader.onload = function handleReaderLoad(event) {
-        const parsedObject = JSON.parse(event.target.result);
-        console.log('jeb panie oto parsedObject', parsedObject);
+        const parsedObject = JSON.parse(fixFbJson(event.target.result));
         yourPartner = parsedObject.participants[0].name;
-        document.getElementById('messagingPartner').innerHTML = yourPartner;
-        messagingData = parsedObject.messages.map(({
-            message
-        }) => ({
-            message,
-            sentTime,
-        }));
+        let partners = parsedObject.participants.length;
+        let groupName = parsedObject.title;
+        if (partners > 2) {
+            yourPartner = partners + " people";
+            document.getElementById('groupName').textContent = "your group name is " + groupName;
+        } else document.getElementById('groupName').textContent = "";
+        document.getElementById('messagingPartner').textContent = "it seems like you've been messaging with " + yourPartner;
+        parsedObject.messages.forEach((message, index) => {
+            messagingData.x.push(dayjs(message.timestamp_ms).format('DD-MM-YYYY'));
+            messagingData.y.push(index + 1);
+        });
+        // console.log(messagingData);
+        console.log(getPoints(messagingData));
     }
-    reader.readAsText(target.files[0]);
+    reader.readAsBinaryString(target.files[0]);
 }
 
-
-
-function timestampConverter(timestamp) {
-    const time = new Date(timestamp);
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let i = time.getMonth();
-    console.log(months[i], time.getFullYear());
-    console.log("jeb", yourPartner);
+function fixFbJson(json) {
+    const textDecoder = new TextDecoder()
+    return json.replace(/\\u00(..)\\u00(..)/g, (...args) => {
+        const p1 = parseInt(args[1], 16)
+        const p2 = parseInt(args[2], 16)
+        return textDecoder.decode(new Int8Array([p1, p2]))
+    })
 }
 
-//potem se naprawię
-// const imput = document.querySelector('input[type="file"]')
-// imput.addEventListener('change', function read(event) {
-//     // console.log(imput.files);
-//     const dupa = imput.files.item(0);
-//     const reader = new FileReader();
+function isUploaded() {
+    if (document.getElementById('giveData').value !== "") {
+        console.log("bravo, file uploaded");
+        location.href = '#graphMe';
+    } else {
+        window.alert("you didn't actually upload any file, did you?");
+        console.log("no file uploaded");
+    }
+}
 
-//     reader.onload = function () {
-//         callback(reader.result);
-//     }
-//     console.log(dupa);
-// }, false); //co tu sie to ja nawet nie (już chyba wiem co tu się)
+function getPoints(array) {
+    const x = array.x;
+    const y = array.y;
+    const result = {};
+    x.forEach((x, i) => result[x] = y[i])
+    return result;
+}
