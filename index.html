@@ -10,46 +10,48 @@
 </head>
 
 <body>
+    <!-- Start-->
     <div class="hello" id="start">
-        <h1>hi.</h1>
+        <p class="bigger">hi.</p>
         <p>let's create a graph out of your facebook messaging history.</p>
         <p>all you need is your facebook messaging data in json. <span class="smol">(it does take some time)</span></p>
         <p>shall we proceed?</p>
-        <button id="yes" onclick="location.href='#feedMe'" type="button">why
-            not</button>
+        <a href="#feedMe" class="click">why not</a>
     </div>
+    <!-- e/o Start -->
+
+
+    <!-- Feed me -->
     <div class="hello" id="feedMe">
-        <h1>select json files.</h1>
-        <p>add <span style="text-decoration: line-through">each persons'</span> one <span
-                style="color: #9b95bf">message_1.json</span> to plot
+        <p class="bigger">select json files.</p>
+        <p>add <span class="line-through">each persons'</span> one <span class="lighter">message_1.json</span> to plot
             your graph</p>
         <p class="smol">don't worry. i don't know how to intercept data. that said, yours is safe. no worries.</p>
-        <p class="smol">v to niżej się zjebało trochę v</p>
+
         <input id="giveData" type="file" accept=".json" onchange="handleChange(this)">
+
         <p>finished?</p>
+
         <button id="continue" onclick="isUploaded()">let's plot</button>
-        <script>
-            function isUploaded() {
-                if (document.getElementById('giveData').value !== "") {
-                    console.log("xddddd");
-                    location.href = '#graphMe';
-                } else {
-                    window.alert("you didn't actually upload any file, did you?");
-                    console.log("dx");
-                }
-            }
-        </script>
     </div>
+    <!-- e/o Feed me-->
+
+
+    <!-- Graph me -->
     <div id="graphMe">
-        <p>it seems like you've been messaging with <span id="messagingPartner"></span></p>
-        <p>tu będzie rysowanko, na razie też zjebane, bo za duże i nie działa Xd</p>
-        <canvas id="myChart" width="400" height="400"></canvas>
+        <p><span id="messagingPartner"></span></p>
+        <p><span id="groupName"></span></p>
+        <canvas id="myChart" width="400" height="200"></canvas>
     </div>
-    <footer>made with effort by <a href="http://github.com/nidomika">dominika szymanska</a></footer>
+    <!-- e/o Graph me -->
+
+
+    <footer>made with effort by <a class="foot" href="http://github.com/nidomika">dominika szymanska</a></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <script src="plot.js"></script>
+    <script src="https://unpkg.com/dayjs"></script>
     <script src="main.js"></script>
+    <script src="plot.js"></script>
 </body>
 
 </html>
