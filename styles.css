@@ -14,20 +14,24 @@
      color: #cdcadf;
  }
 
- h1 {
-     color: #eeedf4;
-     margin-bottom: 0;
+ p {
+     margin: auto;
+     padding: 0.4em 0;
+     font-size: 1em;
+     text-align: center;
+     height: fit-content;
+     width: fit-content;
  }
 
- p {
-     font-size: 1em;
-     margin: 0.5em 0;
-     text-align: center;
+ .bigger {
+     color: #eeedf4;
+     margin-bottom: 0;
+     font-size: 2em;
+     font-weight: bold;
  }
 
  .smol {
-     font-size: 0.4em;
-     color: #7971aa;
+     color: #6960a0;
  }
 
  .hello {
@@ -39,11 +43,22 @@
      padding: 5vw;
  }
 
+ .line-through {
+     text-decoration: line-through;
+ }
+
+ .lighter {
+     color: #9b95bf;
+ }
+
+ a.click,
  button,
  input {
      margin: 0 auto;
-     display: block;
      padding: 2vw 5vw;
+     display: block;
+     height: fit-content;
+     width: fit-content;
      font-size: 0.7em;
      background-color: #2d2658;
      color: #cdcadf;
@@ -52,9 +67,11 @@
      position: relative;
      -webkit-transition-duration: 0.4s;
      transition-duration: 0.4s;
+
  }
 
- button:hover {
+ button:hover,
+ a.click:hover {
      cursor: pointer;
      background-color: #9b95bf;
      color: #27214b;
@@ -70,6 +87,8 @@
      width: 100%;
      height: height;
  }
+
+ /* #myChart {} */
 
  footer {
      /* position: fixed; */
