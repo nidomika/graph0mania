@@ -24,7 +24,7 @@
     <!-- Feed me -->
     <div class="hello" id="feedMe">
         <p class="bigger">select json files.</p>
-        <p>add <span class="line-through">each persons'</span> one <span class="lighter">message_1.json</span> to plot
+        <p>add each persons' <span class="lighter">message_1.json</span> to plot
             your graph</p>
         <p class="smol">don't worry. i don't know how to intercept data. that said, yours is safe. no worries.</p>
 
@@ -32,14 +32,14 @@
 
         <p>finished?</p>
 
-        <button id="continue" onclick="isUploaded()">let's plot</button>
+        <button id="continue" onclick="isUploaded()"><span id="add">let's plot</span></button>
     </div>
     <!-- e/o Feed me-->
 
 
     <!-- Graph me -->
     <div id="graphMe">
-        <p><span id="messagingPartner"></span></p>
+        <!-- <p><span id="messagingPartner"></span></p> -->
         <p><span id="groupName"></span></p>
         <canvas id="myChart" width="400" height="200"></canvas>
     </div>
@@ -48,7 +48,6 @@
 
     <footer>made with effort by <a class="foot" href="http://github.com/nidomika">dominika szymanska</a></footer>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-    <!-- <script src="https://unpkg.com/dayjs"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="main.js"></script>
     <script src="plot.js"></script>
