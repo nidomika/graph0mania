@@ -7,7 +7,6 @@ function handleChange(target) {
 function onReaderLoad(e) {
   const parsedObject = JSON.parse(fixFbJson(e.target.result));
 
-  // Tutaj to co jest constem - niech będzie constem
   let yourPartner = parsedObject.participants[0].name;
   let partners = parsedObject.participants.length;
   let groupName = parsedObject.title; //for 2 people convos, yourPartner = groupName
