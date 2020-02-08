@@ -1,5 +1,3 @@
-const updatedMessagingData = [];
-
 function handleChange(target) {
   const reader = new FileReader();
   reader.onload = onReaderLoad;
@@ -9,25 +7,34 @@ function handleChange(target) {
 function onReaderLoad(e) {
   const parsedObject = JSON.parse(fixFbJson(e.target.result));
 
+  // Tutaj to co jest constem - niech będzie constem
   let yourPartner = parsedObject.participants[0].name;
   let partners = parsedObject.participants.length;
   let groupName = parsedObject.title; //for 2 people convos, yourPartner = groupName
 
   if (partners > 2) {
     yourPartner = `${partners} people`;
-    document.getElementById('groupName').textContent = `your group name is ${groupName}.`;
+    document.querySelector('#groupName').textContent = `your group name is ${groupName}.`;
   } else {
-    document.getElementById('groupName').textContent = '';
+    document.querySelector('#groupName').textContent = '';
   }
 
-  document.getElementById('messagingPartner').textContent = `it seems like you've been messaging with ${yourPartner}.`;
+  const data = parsedObject.messages.map((message, index) => ({
+    x: message.timestamp_ms,
+    y: parsedObject.messages.length - index
+  }))
 
-  parsedObject.messages.forEach((message, index) => {
-    updatedMessagingData.push({
-      x: message.timestamp_ms,
-      y: index
-    });
-  });
+  const dataset = {
+    label: `number of messages over time with ${yourPartner}`,
+    fill: false,
+    borderColor: generateColor(),
+    borderWidth: 2,
+    radius: 0,
+    data
+  };
+
+  myChart.data.datasets.push(dataset);
+  myChart.update();
 }
 
 function fixFbJson(json) {
@@ -40,19 +47,24 @@ function fixFbJson(json) {
 }
 
 function isUploaded() {
-  if (document.getElementById('giveData').value !== '') {
+  if (document.querySelector('#giveData').value !== '') {
     console.log('bravo, file uploaded succsessfully');
     location.href = '#graphMe';
+    if (myChart.data.datasets.length > 0) {
+      document.querySelector('#add').textContent = 'add another one';
+    }
   } else {
-    window.alert('you didn\'t actually upload any file, did you?');
+    window.alert(`you didn't actually upload any file, did you?`);
     console.log('no file uploaded');
   }
 }
 
-function getPoints(array) {
-  const x = array.x;
-  const y = array.y;
-  const result = {};
-  x.forEach((x, i) => result[x] = y[i]);
-  return result;
+function generateColor() {
+  const rgb = [
+    Math.floor(Math.random() * 256),
+    Math.floor(Math.random() * 256),
+    Math.floor(Math.random() * 256)
+  ].join(', ');
+
+  return `rgba(${rgb}, 0.7)`;
 }
