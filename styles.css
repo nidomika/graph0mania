@@ -85,11 +85,13 @@
 
  #graphMe {
      margin: auto;
-     padding: 3em 0;
-     width: 100%;
+     padding: 3em;
  }
 
- /* #myChart {} */
+ /* #myChart {
+     margin: auto;
+     padding: 1em;
+ } */
 
  footer {
      width: 100%;
