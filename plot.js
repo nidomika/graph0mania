@@ -1,70 +1,42 @@
-const ctx = document.getElementById('myChart').getContext('2d');
+const ctx = document.querySelector('#myChart').getContext('2d');
+
+Chart.defaults.global.defaultFontColor = '#cdcadf';
 
 const myChart = new Chart(ctx, {
   type: 'line',
   data: {
-    datasets: [{
-      label: 'number of messages over time',
-      // data: [{
-      //   x: 1527754018632,
-      //   y: 0
-      // }, {
-      //   x: 1527753837285,
-      //   y: 1
-      // }, {
-      //   x: 1527753499064,
-      //   y: 2
-      // }, {
-      //   x: 1527753163022,
-      //   y: 3
-      // }, {
-      //   x: 1527753122813,
-      //   y: 4
-      // }, {
-      //   x: 1527751784835,
-      //   y: 5
-      // }],
-      data: updatedMessagingData,
-      fill: false,
-      borderColor: 'rgb(205, 202, 223)'
-    }]
+    datasets: []
   },
   options: {
     scales: {
       xAxes: [{
         type: 'time',
-        // time: {
-        //   displayFormats: {
-        //     year: 'YYYY'
-        //   }
-        // },
+        time: {
+          displayFormats: {
+            day: 'DD MMM YYYY'
+          }
+        },
       }],
       yAxes: [{
         ticks: {
-          beginAtZero: true
-        }
+          beginAtZero: false
+        },
+        // stacked: true
       }]
-    }
+    },
+
+    animation: {
+      duration: 0
+    },
+
+    hover: {
+      animationDuration: 0
+    },
+
+    // elements: {
+    //   line: {
+    //     tension: 0
+    //   }
+    // }
   }
 });
-myChart.update()
-
-// [{
-//   x: 1527754018632,
-//   y: 0
-// }, {
-//   x: 1527753837285,
-//   y: 1
-// }, {
-//   x: 1527753499064,
-//   y: 2
-// }, {
-//   x: 1527753163022,
-//   y: 3
-// }, {
-//   x: 1527753122813,
-//   y: 4
-// }, {
-//   x: 1527751784835,
-//   y: 5
-// }]
