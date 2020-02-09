@@ -49,8 +49,11 @@ function isUploaded() {
   if (document.querySelector('#giveData').value !== '') {
     console.log('bravo, file uploaded succsessfully');
     location.href = '#graphMe';
+
     if (myChart.data.datasets.length > 0) {
-      document.querySelector('#add').textContent = 'add another one';
+      setTimeout(function () {
+        document.querySelector('#add').textContent = 'add another one'
+      }, 1000);
     }
   } else {
     window.alert(`you didn't actually upload any file, did you?`);
